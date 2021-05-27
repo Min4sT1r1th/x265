@@ -42,3 +42,5 @@ for the impatient on linux:
 # make
 
 Please note, that I had no success in building it with my cmake parameters with gcc (10.2.0), but instead used clang (11.1.0).
+
+Furthermore I fixed some compiler warnings, which let it now build without any warning (at least on my machine with my chosen configuration parameters); they were of a relative mild nature and are NOT (I repeat: NOT) tested by me in any way. There may side-effects or maybe they introduced other bugs, which are not covered by simple compiler warnings/errors to the user.. so, if you choose to clone this repo, do it at your OWN risk!
