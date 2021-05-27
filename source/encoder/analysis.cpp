@@ -2692,8 +2692,8 @@ void Analysis::classifyCU(const CUData& ctu, const CUGeom& cuGeom, const Mode& b
             {
                 offset = (depth * X265_REFINE_INTER_LEVELS) + i;
                 /* Calculate distance values */
-                diffRefine[i] = abs((int64_t)(trainData.cuVariance - m_frame->m_classifyVariance[offset]));
-                diffRefineRd[i] = abs((int64_t)(cuCost - m_frame->m_classifyRd[offset]));
+                diffRefine[i] = std::abs((int64_t)(trainData.cuVariance - m_frame->m_classifyVariance[offset]));
+                diffRefineRd[i] = std::abs((int64_t)(cuCost - m_frame->m_classifyRd[offset]));
 
                 /* Calculate prior probability - ranges between 0 and 1 */
                 if (trainingCount)
@@ -3645,7 +3645,7 @@ int Analysis::calculateQpforCuSize(const CUData& ctu, const CUGeom& cuGeom, int3
             qp += distortionData->offset[ctu.m_cuAddr];
     }
 
-    if (m_param->analysisLoadReuseLevel >= 2 && m_param->rc.cuTree)
+    if (m_param->analysisLoadReuseLevel == 10 && m_param->rc.cuTree)
     {
         int cuIdx = (ctu.m_cuAddr * ctu.m_numPartitions) + cuGeom.absPartIdx;
         if (ctu.m_slice->m_sliceType == I_SLICE)
