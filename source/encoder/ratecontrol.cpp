@@ -1739,7 +1739,7 @@ double RateControl::tuneQScaleForGrain(double rcOverflow)
     int newQp = rcOverflow > 1.1 ? curQp + 2 : rcOverflow > 1 ? curQp + 1 : curQp - 1 ;
     double projectedBitrate =  int(m_fps + 0.5) * m_qpToEncodedBits[newQp];
     if (curBitrate > 0 && projectedBitrate > 0)
-        q =  abs(projectedBitrate - m_bitrate) < abs (curBitrate - m_bitrate) ? x265_qp2qScale(newQp) : m_lastQScaleFor[P_SLICE];
+        q =  std::abs(projectedBitrate - m_bitrate) < std::abs (curBitrate - m_bitrate) ? x265_qp2qScale(newQp) : m_lastQScaleFor[P_SLICE];
     else
         q = rcOverflow > 1 ? qScaleAvg * qpstep : rcOverflow < 1 ?  qScaleAvg / qpstep : m_lastQScaleFor[P_SLICE];
     return q;
