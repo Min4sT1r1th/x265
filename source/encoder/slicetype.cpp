@@ -2040,8 +2040,8 @@ void Lookahead::slicetypeAnalyse(Lowres **frames, bool bKeyframe)
             {
                 averageIcost = averageIcost / times;
                 averagePcost = averagePcost / times;
-                frames[i]->interPCostPercDiff = abs(interCost - averagePcost) / X265_MIN(interCost, averagePcost) * 100;
-                frames[i]->intraCostPercDiff = abs(intraCost - averageIcost) / X265_MIN(intraCost, averageIcost) * 100;
+                frames[i]->interPCostPercDiff = std::abs(interCost - averagePcost) / X265_MIN(interCost, averagePcost) * 100;
+                frames[i]->intraCostPercDiff = std::abs(intraCost - averageIcost) / X265_MIN(intraCost, averageIcost) * 100;
             }
         }
     }
