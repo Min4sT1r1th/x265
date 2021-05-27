@@ -43,6 +43,7 @@ for the impatient on linux:
 
 Please note, that I had no success in building it with my cmake parameters with gcc (10.2.0), but instead used clang (11.1.0) :
 
+```
 cmake \
 -DCMAKE_INSTALL_PREFIX='/usr' \
 -DCMAKE_INSTALL_BINDIR='/usr/bin' \
@@ -132,3 +133,4 @@ cmake \
 -DSTATIC_LINK_CRT='OFF' \
 -DWARNINGS_AS_ERRORS='OFF' \
 ../../source
+```
