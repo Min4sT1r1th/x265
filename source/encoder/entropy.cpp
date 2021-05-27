@@ -500,7 +500,7 @@ void Entropy::codeVUI(const VUI& vui, int maxSubTLayers, bool bEmitVUITimingInfo
 
 void Entropy::codeScalingList(const ScalingList& scalingList)
 {
-    for (int sizeId = 0; sizeId < ScalingList::NUM_SIZES; sizeId++)
+    for (int sizeId = 0; sizeId < ScalingList::SL_NUM_SIZES; sizeId++)
     {
         for (int listId = 0; listId < ScalingList::NUM_LISTS; listId += (sizeId == 3) ? 3 : 1)
         {
