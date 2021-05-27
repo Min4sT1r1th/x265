@@ -124,11 +124,11 @@ int ads_x4(int encDC[4], uint32_t *sums, int delta, uint16_t *costMvX, int16_t *
     int nmv = 0;
     for (int16_t i = 0; i < width; i++, sums++)
     {
-        int ads = abs(encDC[0] - long(sums[0]))
-            + abs(encDC[1] - long(sums[lx >> 1]))
-            + abs(encDC[2] - long(sums[delta]))
-            + abs(encDC[3] - long(sums[delta + (lx >> 1)]))
-            + costMvX[i];
+        int ads = std::abs(encDC[0] - long(sums[0]))
+                + std::abs(encDC[1] - long(sums[lx >> 1]))
+                + std::abs(encDC[2] - long(sums[delta]))
+                + std::abs(encDC[3] - long(sums[delta + (lx >> 1)]))
+                + costMvX[i];
         if (ads < thresh)
             mvs[nmv++] = i;
     }
@@ -141,9 +141,9 @@ int ads_x2(int encDC[2], uint32_t *sums, int delta, uint16_t *costMvX, int16_t *
     int nmv = 0;
     for (int16_t i = 0; i < width; i++, sums++)
     {
-        int ads = abs(encDC[0] - long(sums[0]))
-            + abs(encDC[1] - long(sums[delta]))
-            + costMvX[i];
+        int ads = std::abs(encDC[0] - long(sums[0]))
+                + std::abs(encDC[1] - long(sums[delta]))
+                + costMvX[i];
         if (ads < thresh)
             mvs[nmv++] = i;
     }
@@ -156,8 +156,8 @@ int ads_x1(int encDC[1], uint32_t *sums, int, uint16_t *costMvX, int16_t *mvs, i
     int nmv = 0;
     for (int16_t i = 0; i < width; i++, sums++)
     {
-        int ads = abs(encDC[0] - long(sums[0]))
-            + costMvX[i];
+        int ads = std::abs(encDC[0] - long(sums[0]))
+                + costMvX[i];
         if (ads < thresh)
             mvs[nmv++] = i;
     }
